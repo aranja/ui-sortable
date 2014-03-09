@@ -13,6 +13,10 @@ angular.module('ui.sortable', [])
         link: function(scope, element, attrs, ngModel) {
           var savedNodes;
 
+          if (window.jQuery) {
+            element = window.jQuery(element[0]);
+          }
+
           function combineCallbacks(first,second){
             if(second && (typeof second === 'function')) {
               return function(e, ui) {
